@@ -1,0 +1,23 @@
+package Leap1;
+
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+public class Leap2 {
+
+	public static void main(String[] args) {
+		
+		System.out.println(Leap1.displayCalendar(15, 1947));
+		System.out.println(Leap1.getDaysInMonth(8, 2015));
+		System.out.println(Leap1.isLeapYear(2016));
+		
+		
+	System.out.println(Leap1.toString(15, 8, 2020, '/'));
+
+	}
+	int daysBetween(Date d1, Date d2){
+        return (int)( (d2.getTime() - d1.getTime()) / (1000 * 60 * 60 * 24));
+  }
+	}

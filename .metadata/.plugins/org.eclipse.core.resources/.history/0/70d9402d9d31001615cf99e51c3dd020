@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class Rainfallcalculator {
+
+	public static void main(String[] args) {
+		Scanner keyboard = new Scanner(System.in);
+		 double length, wide, height;
+		 
+		 System.out.print( "Enter the length of the roof " );
+		    length = keyboard.nextInt();
+		 System.out.print( "Enter the wide of the roof " );
+		    wide = keyboard.nextInt();
+		 System.out.print( "Enter the height of the roof " );
+		    height = keyboard.nextInt();
+	}
+
+}

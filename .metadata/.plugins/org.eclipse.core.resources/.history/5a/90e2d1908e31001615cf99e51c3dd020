@@ -1,0 +1,24 @@
+
+public class EscapeSequence {
+
+	public static void main(String[] args) {
+		System.out.println( "*********");
+		System.out.println("*\t*");
+		System.out.println("*\t*");
+		System.out.println("*\t*");
+		System.out.println("*\t*");
+		System.out.println( "*********");
+		
+		
+		
+		
+		System.out.println( "Cost \t Quantity \t Total \n"
+				" $1,000.00 \t 4 \t $4,000.00 \n"
+				"$50.00 \t 8 \t $400.00 \n"
+				_____________________________
+				" TOTAL: \t 12 \t $4,400.00" );
+		
+		
+	}
+
+}

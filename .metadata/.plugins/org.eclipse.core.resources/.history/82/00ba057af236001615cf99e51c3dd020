@@ -1,0 +1,12 @@
+
+public class VehicleApp {
+
+	public static void main(String[] args) {
+		Vehicle b = new Vehicle();
+		Plane c = new Plane();
+		Car a = new Car();
+
+	}
+
+}
+ 

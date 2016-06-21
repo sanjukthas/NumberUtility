@@ -1,0 +1,24 @@
+import java.util.Collections;
+import java.util.Scanner;
+import java.util.ArrayList; 
+
+public class Array {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+
+	    System.out.println("Enter the size of an Array");
+			
+		   arraylist<String>movies=new arraylist<String>();
+		   
+			for (int i = 0; i < input.length; i++)
+		    {
+		        System.out.println("Please enter list of movies");
+		        String[] names;
+				names[i] = input.next();
+		    }
+		
+	}
+}
+
+

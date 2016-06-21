@@ -1,0 +1,11 @@
+
+public class CarApp {
+
+	public static void main(String[] args) {
+		Car a = new Car();
+		a.road();
+		Car b =new Car();
+		b.acc();
+	}
+
+}

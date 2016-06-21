@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class IODebugging {
+
+{ 
+  public static void main( String[] args ) 
+  { 
+    Scanner keyboard = new Scanner(System.in);
+int sum;
+
+    System.out.print( "First integer? " );
+    sum = sum+keyboard.nextString();
+
+    System.out.print( "Second integer? " );
+    sum = sum+keyboard.nextInt();
+
+    System.out.print( "Third integer? " );
+    sum = sum+keyboard.nextDouble();
+  }
+  System.out.println("The total is : " + sum);
+}

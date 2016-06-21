@@ -1,0 +1,16 @@
+
+public class Cat {
+
+	public void eat (){
+	System.out.println(" Cat eats");
+
+}
+   public void fly (){
+	System.out.println(" Cat fly");
+
+}
+  public void sleep() {
+	// TODO Auto-generated method stub
+	
+}
+}

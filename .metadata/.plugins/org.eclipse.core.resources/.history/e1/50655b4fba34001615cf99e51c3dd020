@@ -1,0 +1,75 @@
+package Invoice;
+
+import java.util.Scanner;
+
+import Invoice.ItemDatabase;
+import Invoice.LineItem;
+
+public class InvoiceApp {
+	static double tax = 0.0,taxAmount=0.0,taxableTotal=0.0,untaxableTotal,total=0.0;
+	
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		String output = "";
+		try {
+			ItemDatabase dataBase = new ItemDatabase();
+			dataBase.createItemDatabase();
+			System.out.println("Enter Tax rate:");
+			tax = in.nextDouble();
+			total = 0.0;
+			System.out.printf("Tax rate?: %.02f\n", tax);
+			output += ("Item\tQuantity\tDescription\tPrice\tTotal\n");
+			while (true) {
+				System.out.println("Enter Item  or Press 0 to exit");
+				String tmp = in.next();
+				LineItem item = dataBase.getItem(tmp);
+				if (tmp.equals("0")) {
+					break;
+				}
+				System.out.println("Enter Quantity or Press 0 to exit");
+				int quantity = in.nextInt();
+				if (quantity == 0) {
+					break;
+				}
+				double currentTotal = quantity * item.getPrice();				
+				output += (item.getItem() + "\t" + quantity + "\t" + item.getDescription() + "\t" 
+				+ item.getPrice() + "\t" + currentTotal + "\n");
+				if(!item.isUntaxable()) {
+					taxableTotal += currentTotal;
+					taxAmount += currentTotal*tax/100;
+					currentTotal += currentTotal*tax/100;					
+				} else {
+					untaxableTotal += currentTotal;
+				}
+				total += currentTotal;
+			}
+			System.out.println(output);
+			System.out.println();
+			
+			System.out.printf("Taxable SubTotal: $%.02f ", taxableTotal);
+			System.out.println();
+			System.out.printf("Untaxable SubTotal: $%.02f ", untaxableTotal);
+			System.out.println();
+			System.out.printf(" Total Tax: $%.03f", taxAmount);
+			System.out.println();
+			System.out.printf("Grand Total: $%.02f", total);
+		} catch (ArithmeticException e) {
+			System.out.println("Arithmetic Exception thrown");
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("Array Index Out Of Bounds Exception thrown");
+		} catch (ArrayStoreException e) {
+			System.out.println("Array Store Exception thrown");
+		} catch (ClassCastException e) {
+			System.out.println("Class Cast Exception thrown");
+		} catch (NumberFormatException e) {
+			System.out.println("Number Format Exception thrown");
+		} catch (NullPointerException e) {
+			System.out.println("Null Pointer Exception thrown");
+		} catch (Exception e) {
+			System.out.println("General Exception thrown");
+		} finally {
+			in.close();
+		}
+	}
+
+}

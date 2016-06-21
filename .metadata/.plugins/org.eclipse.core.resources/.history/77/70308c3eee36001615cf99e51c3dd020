@@ -1,0 +1,12 @@
+
+public class Cat {
+
+	public void eat (){
+	System.out.println(" Bird eats");
+
+}
+public void fly (){
+	System.out.println(" Bird fly");
+
+}
+}

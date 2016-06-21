@@ -1,0 +1,15 @@
+
+public class Car extends VehicleApp{
+
+	public void road (){
+	System.out.println(" The red Porsche is starting" 
+	+"The red Porsche is accelerating"
+    +"The red Porsche is going 50 mph" 
+    + "The red Porsche is stopped");
+	
+
+	}
+
+	
+
+}

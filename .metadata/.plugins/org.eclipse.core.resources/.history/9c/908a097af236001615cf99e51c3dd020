@@ -1,0 +1,9 @@
+
+public class Vehicle extends VehicleApp {
+
+	
+		System.out.println("Which vehicle do you like?");
+
+	}
+
+}

@@ -1,0 +1,83 @@
+package DaltonBank;
+
+import java.util.Scanner;
+
+public class BankMain {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		System.out.println("Welcome to Dalton Corp Savings and Loan");
+		System.out.println("Please create the user account(s)");
+		Account account = new Account();
+		System.out.println("Enter an account # or -1 to stop entering accounts:");
+		int accountNum = in.nextInt(); 
+		if (accountNum != -1) {
+			int k = 0; 
+					do   
+					   account.setAccountNumber(accountNum);
+					System.out.println ("Enter the name for acct # " + accountNum + ":");
+					String name = in.next(); 
+					   account.setName(name);
+							   System.out.println ("Enter the balance for acct # " + accountNum   + ":");
+					   read input
+					   balance[k] = input
+					   k= k+1
+							   System.out.println "Enter an account # or -1 to stop entering accounts:"
+					   read input  
+					  WHILE -1 is not entered for account number
+					  END DO WHILE
+		}
+		 
+
+		  initialise Table Transaction (transactionType[], accountTran[], amount[], dateTran[])
+		  type[] = {Check, Debit card(1), Deposit or Withdrawal(2)}
+		  System.out.println "Enter a transaction type (Check (0), Debit card(1), Deposit or Withdrawal(2)) or -1 to finish :"
+		  read input  
+		  IF input != -1
+		  k = 0 
+		  DO    
+		    transactionType[k] = type[input]
+		    		System.out.println "Enter the acct # :"
+		    read input
+		    accountTran[k] = input
+		    		System.out.println "Enter the amount of the " + transactionType[k]   + ":"
+		    read input
+		    amount[k] = input
+		    		System.out.println "Enter the date of the " + transactionType[k]   + ":"
+		    read input
+		    dateTran[k] = input
+		    k=k+1
+		    		System.out.println "Enter an account # or -1 to stop entering accounts:"
+		    read input  
+		   WHILE -1 is not entered for account number
+		   END DO WHILE
+
+		   Table Transaction = sort(Transaction, 4)
+
+		   balance = processTransactions(Transaction, Account)
+
+		   FOR all distinct accounts in Transactions
+		   System.out.println "The balance for account" +  account + " is " + balance
+		   END FOR
+
+		   sort(Table a, ColNum b)
+		    sort a based on b
+
+		   balance (Table a, Table b)
+		    type = a.transactionType
+		    account = a.account
+		    balance = b.balance where b.account = account
+		    IF type = check
+		     b.balance = balance + a.ammount
+		    ELSE IF type =  Debit Card
+		     temp = balance - a.amount
+		     IF temp >= 0
+		      b.balance = temp
+		     ELSE
+		      b.balnce = temp - 35
+		     
+		     END balance
+
+	}
+
+}

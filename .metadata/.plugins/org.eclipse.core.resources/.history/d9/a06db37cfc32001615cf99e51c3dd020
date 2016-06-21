@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class Gradebook {
+
+	public static void main(String[] args) {
+				 int i;
+		  int a, b, c, d, e; /*a=Number of Students
+							b=Overall Average	
+							c=Average for Gender
+							d=Average for Major
+							e=Average by State*/
+		  
+		    Scanner in = new Scanner(System.in);
+		    int entry=0;
+		    
+		    while ( entry != 0){
+		    
+		    System.out.println("Enter the number of students");
+		   
+		    System.out.println("Enter the Overall Average");
+		   	    
+		    System.out.println("Enter the Average for Gender");
+		   		    
+		    System.out.println("Enter the Average for Major");
+		    		    
+		    System.out.println("Enter the Average by State");
+		 
+		    }
+		    
+		    System.out.println("Enter the number of students");
+		    a = in.nextInt();
+		    
+		    System.out.println("Enter the Overall Average");
+		    b = in.nextInt();
+		    
+		    System.out.println("Enter the Average for Gender");
+		    c = in.nextInt();
+		    
+		    System.out.println("Enter the Average for Major");
+		    d = in.nextInt();
+		    
+		    System.out.println("Enter the Average by State");
+		    e = in.nextInt();
+		    
+	}
+
+}

@@ -1,0 +1,20 @@
+
+public class Car extends VehicleApp{
+
+	public void road (){
+	System.out.println(" The red Porsche is starting \n"
+	+"The red Porsche is accelerating \n"
+    +"The red Porsche is going 50 mph \n" 
+    + "The red Porsche is stopped \n");
+	
+
+	}
+
+	public void acc() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
+}

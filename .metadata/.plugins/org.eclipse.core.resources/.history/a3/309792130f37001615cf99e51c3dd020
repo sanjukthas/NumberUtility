@@ -1,0 +1,28 @@
+package Leap1;
+
+public class Leap2 {
+
+	public static void main(String[] args) {
+		System.out.println(Leap1.displayCalendar(8, 1947));
+		System.out.println(Leap1.getDaysInMonth(10, 2015));
+		System.out.println(Leap1.isLeapYear(2016));
+		System.out.println(Leap1.toString(8, 10, 2020, '/'));
+
+	}
+
+	private static char[] isLeapYear(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private static char[] getDaysInMonth(int i, int j) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private static char[] displayCalendar(int i, int j) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

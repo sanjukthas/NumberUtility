@@ -1,0 +1,29 @@
+import java.util.Collections;
+import java.util.Scanner;
+import java.util.ArrayList; 
+
+public class Array {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+
+	    System.out.println("Enter the size of an Array");
+			
+		   ArrayList<String>movies=new ArrayList<String>();
+		   String movie;
+		   
+			while(1>0)
+		    {
+				
+		        System.out.println("Please enter list of movies");
+		          movie= input.next(); 
+		          movies.addAll(movies);
+		        if (movie.equals("-1"))
+		        	break;
+		        		        
+		    }
+		
+	}
+}
+
+

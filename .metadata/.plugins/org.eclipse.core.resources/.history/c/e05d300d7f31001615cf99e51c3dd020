@@ -1,0 +1,13 @@
+import java.util.Scanner;
+public class GettingandStoring {
+
+	public static void main(String[] args) {
+		
+		
+		Scanner keyboard = new Scanner(System.in); 
+		String myAnswer = keyboard.next();
+		System.out.print(firstInitial + " " + lastName + " " + houseNumber + " "); 
+		System.out.println(streetName + " " + streetType + " " + city);
+	}
+
+}

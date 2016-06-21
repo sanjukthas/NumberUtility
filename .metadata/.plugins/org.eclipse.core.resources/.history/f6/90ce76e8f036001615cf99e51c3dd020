@@ -1,0 +1,9 @@
+
+public class Vehicle extends VehicleApp {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

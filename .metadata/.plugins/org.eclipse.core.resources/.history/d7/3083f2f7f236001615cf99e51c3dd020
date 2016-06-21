@@ -1,0 +1,9 @@
+
+public class Plane extends VehicleAPP{
+
+	public void fly() {
+		System.out.println(" Drive a plane");
+
+	}
+
+}

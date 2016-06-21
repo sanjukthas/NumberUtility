@@ -1,0 +1,33 @@
+import java.util.Scanner;
+ 
+public class Leap1{
+ 
+	int year1, year2;
+	Scanner scan;
+	
+	void getVal() {
+		
+		scan = new Scanner(System.in);
+ 
+		System.out.println("Find leap years between two years");
+		
+		System.out.println("\nEnter the year - 1 : ");
+		year1 = Integer.parseInt(scan.nextLine());
+		
+		System.out.println("Enter the year - 2 : ");
+		year2 = Integer.parseInt(scan.nextLine());
+	}
+	
+	void check() {
+
+		System.out.println();
+						
+		for(int i=year1; i<=year2; i++) {
+			
+			if(i%400 == 0 || i%4 == 0) {
+				
+				System.out.println(i + " is a leap year");			
+			}
+		}
+	}
+}

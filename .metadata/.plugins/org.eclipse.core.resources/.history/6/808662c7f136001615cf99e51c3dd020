@@ -1,0 +1,8 @@
+
+public class Car extends VehicleApp{
+
+	
+	System.out.println(" Drive a car");
+
+	}
+
