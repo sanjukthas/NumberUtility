@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;SQLQ.java&apos; to &apos;DBU/src&apos;&#x0A;- Original project: &apos;SQLQ&apos;&#x0A;- Destination element: &apos;DBU/src&apos;&#x0A;- Original element: &apos;SQLQ.java&apos;" description="Copy compilation unit" destination="=DBU/src" element1="/src&lt;{SQLQ.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1467292899211" units="1" version="1.0"/>
+</session>

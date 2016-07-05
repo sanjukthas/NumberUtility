@@ -1,0 +1,14 @@
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+
+public class test {
+
+	@Test
+	public void test() {
+		int out3= DisplayDate.printCalendarMonthYear(5,2016);
+		System.out.println(out3);
+	}
+
+}

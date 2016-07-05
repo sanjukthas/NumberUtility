@@ -1,0 +1,10 @@
+import java.io.InputStream;
+
+public class PreparedStatement {
+
+	public void setInt(int i, InputStream in) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

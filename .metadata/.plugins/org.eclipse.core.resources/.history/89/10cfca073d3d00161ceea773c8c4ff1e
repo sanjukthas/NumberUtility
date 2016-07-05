@@ -1,0 +1,17 @@
+package counter;
+
+public class counter implements Runnable {
+
+	@Override
+	public void run() {
+		Thread ct =Thread.currentThread();
+		int count =1;
+		System.out.println("Time begins");
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

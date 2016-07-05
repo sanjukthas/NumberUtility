@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="" method="get">
+<input type="text" name="email" id="email" value""></form>input>
+<input type="password" name="password" id="password" value""></form>input>
+<input type="hidden" name="secretvalue" id="secretvalue" value="loginform"></form>input>
+<input type="submit" name="submit" id="submit" value="email"></form>input>
+</body>
+</html>

@@ -1,0 +1,25 @@
+package DBUtility;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class DBUtilityTestTest {
+
+	@Test
+	public void testSelect() {
+		String query = "SELECT firstname FROM CUSTOMERS where firstname = ?";
+		String params = new String();
+		params(0, "xyz");
+		String username = 'ora1';
+		String password = ' ora1';
+		DataBU.selectData(query, params, username, password);
+		
+	}
+
+	private void params(int i, String string) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

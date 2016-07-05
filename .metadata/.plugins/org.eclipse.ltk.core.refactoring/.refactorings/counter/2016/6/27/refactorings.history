@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;counter&apos; to &apos;Eliza/src&apos;&#x0A;- Original project: &apos;counter&apos;&#x0A;- Destination element: &apos;Eliza/src&apos;&#x0A;- Original element: &apos;counter/src/counter&apos;" description="Copy package" destination="=Eliza/src" element1="/src&lt;counter" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1467124876661" version="1.0"/>
+</session>

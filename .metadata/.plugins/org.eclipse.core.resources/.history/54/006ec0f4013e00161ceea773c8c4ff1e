@@ -1,0 +1,9 @@
+
+public class PreparedStatement {
+
+	public void setInt(int i, double d) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
