@@ -1,0 +1,59 @@
+
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.persistence.EntityManager;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import model.DBUtil;
+
+
+
+/**
+ * Servlet implementation class ProcessForm
+ */
+@WebServlet("/ProcessForm")
+public class ProcessForm extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ProcessForm() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		/*String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		response.setContentType("text/html");
+		String message ="your email is " + email + "<br>" + "your password " +password;
+		PrintWriter out = response.getWriter();
+		out.println(message);*/
+		EntityManager em= DBUtil.getEmFactory().createEntityManager();
+		try{
+			model.Bhpost cust =em.find(model.Bhpost.class, (long)21);
+			response.setContentType("text/html");
+			PrintWriter out1 =response.getWriter();
+			out1.println("&lt;h1&gt;" +cust.getBhuser()+ "&lt;/h1&gt;");
+		}catch(Exception e){
+			System.out.println(e);
+		}finally{
+			em.close();
+			System.out.println("cerrado!");
+		}
+		
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+
+}
