@@ -1,0 +1,65 @@
+package model;
+
+import java.io.Serializable;
+import javax.persistence.*;
+
+
+/**
+ * The persistent class for the STUDENT database table.
+ * 
+ */
+@Entity
+@NamedQuery(name="Student.findAll", query="SELECT s FROM Student s")
+public class Student implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@SequenceGenerator(name="STUDENT_STUDENTNID_GENERATOR", sequenceName="STUDENT_ID_SEQ")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="STUDENT_STUDENTNID_GENERATOR")
+	private long studentnid;
+
+	private String major;
+
+	private String yearofentry;
+
+	//bi-directional one-to-one association to Person
+	@OneToOne
+	@JoinColumn(name="PERSONID")
+	private Person person;
+
+	public Student() {
+	}
+
+	public long getStudentnid() {
+		return this.studentnid;
+	}
+
+	public void setStudentnid(long studentnid) {
+		this.studentnid = studentnid;
+	}
+
+	public String getMajor() {
+		return this.major;
+	}
+
+	public void setMajor(String major) {
+		this.major = major;
+	}
+
+	public String getYearofentry() {
+		return this.yearofentry;
+	}
+
+	public void setYearofentry(String yearofentry) {
+		this.yearofentry = yearofentry;
+	}
+
+	public Person getPerson() {
+		return this.person;
+	}
+
+	public void setPerson(Person person) {
+		this.person = person;
+	}
+
+}

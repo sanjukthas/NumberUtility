@@ -1,0 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="HomeServlet" method="get"  id="myform" name="myform" >  
+<div class="container" name="Student" id="Student">
+          
+                
+                                                   
+                                            
+                      <div id="student"><a  href="HomeServlet?studentnid=<c:out value="${student.studentnid}"/>"> ${student.person.firstname}</a></div>
+                      
+                      <div>Student Major: ${student.major }</div>            
+                                
+                      <div>Year of Entry: ${student.yearofentry }</div>
+                      
+  </div>
+                      
+</form>
+</body>
+</html>

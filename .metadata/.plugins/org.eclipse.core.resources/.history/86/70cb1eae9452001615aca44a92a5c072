@@ -1,0 +1,48 @@
+package model;
+
+import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.TypedQuery;
+
+public class UserHelp {
+		
+	public static Loginuser getUserByEmail(String email) {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String qString = "Select u from Loginuser u " + " where u.email=:email";
+		TypedQuery<Loginuser> q = em.createQuery(qString, Loginuser.class);
+		q.setParameter("email", email);
+		Loginuser user = null;
+		try {
+			user = q.getSingleResult();
+		} catch (NoResultException e) {
+			System.out.println(e);
+		} finally {
+			em.close();
+		}
+		return user;
+	}
+	
+	public static boolean isValidUser(String email,String pwd){
+		EntityManager em =DBUtil.getEmFactory().createEntityManager();
+		String qString ="Select u from Loginiser u" + " where u.email=:email" + " where u.pwd=:pwd";
+		TypedQuery<Long> q =em.createQuery(qString,Long.class);
+		boolean result =false;
+		q.setParameter("email", email);
+		q.setParameter("pwd", pwd);
+		try{
+			Long PersonId = q.getSingleResult();
+			if (PersonId >0)
+			{
+				result=true;
+			}
+		}catch(NoResultException e){
+			result=false;;
+		}finally{
+			em.close();
+			
+		}
+          return result;
+	
+	}
+	
+}

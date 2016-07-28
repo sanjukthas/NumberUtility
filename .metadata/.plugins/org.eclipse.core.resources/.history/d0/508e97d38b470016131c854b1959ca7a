@@ -1,0 +1,70 @@
+package model;
+
+import java.io.Serializable;
+import javax.persistence.*;
+import java.util.List;
+
+
+/**
+ * The persistent class for the "TYPE" database table.
+ * 
+ */
+@Entity
+@Table(name="\"TYPE\"")
+@NamedQuery(name="Type.findAll", query="SELECT t FROM Type t")
+public class Type implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@SequenceGenerator(name=""TYPE"_TYPEID_GENERATOR", sequenceName=""TYPE"_ID_SEQ")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator=""TYPE"_TYPEID_GENERATOR")
+	private String typeid;
+
+	private String description;
+
+	//bi-directional many-to-one association to Gradebook
+	@OneToMany(mappedBy="type")
+	private List<Gradebook> gradebooks;
+
+	public Type() {
+	}
+
+	public String getTypeid() {
+		return this.typeid;
+	}
+
+	public void setTypeid(String typeid) {
+		this.typeid = typeid;
+	}
+
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public List<Gradebook> getGradebooks() {
+		return this.gradebooks;
+	}
+
+	public void setGradebooks(List<Gradebook> gradebooks) {
+		this.gradebooks = gradebooks;
+	}
+
+	public Gradebook addGradebook(Gradebook gradebook) {
+		getGradebooks().add(gradebook);
+		gradebook.setType(this);
+
+		return gradebook;
+	}
+
+	public Gradebook removeGradebook(Gradebook gradebook) {
+		getGradebooks().remove(gradebook);
+		gradebook.setType(null);
+
+		return gradebook;
+	}
+
+}

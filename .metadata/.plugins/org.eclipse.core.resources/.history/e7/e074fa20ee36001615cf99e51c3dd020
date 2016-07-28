@@ -1,9 +1,0 @@
-
-public class Bird extends{
-
-	public void eat ()) {
-		System.out.println(" Bird eats");
-
-	}
-
-}

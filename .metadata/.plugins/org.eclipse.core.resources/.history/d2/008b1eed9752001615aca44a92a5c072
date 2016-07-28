@@ -1,0 +1,52 @@
+package model;
+
+import java.io.Serializable;
+import javax.persistence.*;
+
+
+/**
+ * The persistent class for the LOGINUSER database table.
+ * 
+ */
+@Entity
+@NamedQuery(name="Loginuser.findAll", query="SELECT l FROM Loginuser l")
+public class Loginuser implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@SequenceGenerator(name="LOGINUSER_PERSONID_GENERATOR", sequenceName="LOGINUSER_ID_SEQ",allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="LOGINUSER_PERSONID_GENERATOR")
+	private long personid;
+
+	private String personname;
+
+	private String pwd;
+
+	public Loginuser() {
+	}
+
+	public long getPersonid() {
+		return this.personid;
+	}
+
+	public void setPersonid(long personid) {
+		this.personid = personid;
+	}
+
+	public String getPersonname() {
+		return this.personname;
+	}
+
+	public void setPersonname(String personname) {
+		this.personname = personname;
+	}
+
+	public String getPwd() {
+		return this.pwd;
+	}
+
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+
+}

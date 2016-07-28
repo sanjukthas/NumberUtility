@@ -1,9 +1,0 @@
-
-public class Vehicle extends VehicleApp {
-
-	public static void main(String[] args) {
-		System.out.println("Which vehicle do you like?");
-
-	}
-
-}

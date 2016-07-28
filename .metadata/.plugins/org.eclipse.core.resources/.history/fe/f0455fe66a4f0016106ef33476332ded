@@ -1,0 +1,72 @@
+package model;
+
+import java.io.Serializable;
+import javax.persistence.*;
+
+
+/**
+ * The persistent class for the CRN database table.
+ * 
+ */
+@Entity
+@NamedQuery(name="Crn.findAll", query="SELECT c FROM Crn c")
+public class Crn implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@SequenceGenerator(name="CRN_CRNID_GENERATOR", sequenceName="CRN_ID_SEQ",allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="CRN_CRNID_GENERATOR")
+	private long crnid;
+
+	private String cournumber;
+
+	private String daytime;
+
+	private String roomnum;
+
+	private String subjectcode;
+
+	public Crn() {
+	}
+
+	public long getCrnid() {
+		return this.crnid;
+	}
+
+	public void setCrnid(long crnid) {
+		this.crnid = crnid;
+	}
+
+	public String getCournumber() {
+		return this.cournumber;
+	}
+
+	public void setCournumber(String cournumber) {
+		this.cournumber = cournumber;
+	}
+
+	public String getDaytime() {
+		return this.daytime;
+	}
+
+	public void setDaytime(String daytime) {
+		this.daytime = daytime;
+	}
+
+	public String getRoomnum() {
+		return this.roomnum;
+	}
+
+	public void setRoomnum(String roomnum) {
+		this.roomnum = roomnum;
+	}
+
+	public String getSubjectcode() {
+		return this.subjectcode;
+	}
+
+	public void setSubjectcode(String subjectcode) {
+		this.subjectcode = subjectcode;
+	}
+
+}

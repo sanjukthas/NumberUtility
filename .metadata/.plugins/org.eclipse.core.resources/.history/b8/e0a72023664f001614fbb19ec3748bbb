@@ -1,0 +1,60 @@
+package DBUtil;
+
+
+
+import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.TypedQuery;
+
+import model.DBUtil;
+import model.Person;
+
+
+public class UserHelp {
+
+	public static Person getUserByEmail(String email) {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String qString = "Select u from Person u " + "where u.email=:email";
+		TypedQuery<Person> q = em.createQuery(qString, Person.class);
+		q.setParameter("email", email);
+		Person user = null;
+		try {
+			user = q.getSingleResult();
+		} catch (NoResultException e) {
+			System.out.println(e);
+		} finally {
+			em.close();
+		}
+		return user;
+	}
+	
+	public static boolean isValidUser(String email,String password){
+		EntityManager em= DBUtil.getEmFactory().createEntityManager();
+		String qString ="Select count(b.personid) from Person b "
+				+ " where b.email= :email"
+				+ " and b.pwd=:userpass";
+		TypedQuery<Long> q =em.createQuery(qString,Long.class);
+		boolean result =false;
+		q.setParameter("email", email);
+		q.setParameter("userpass", password);
+		try{
+			Long UserId = q.getSingleResult();
+			if (UserId >0)
+			{
+				result=true;
+			}
+		}catch(NoResultException e){
+			result=false;;
+		}finally{
+			em.close();
+			
+		}
+          return result;
+	
+	}
+
+	public static String getGravatarURL(String email, int size) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

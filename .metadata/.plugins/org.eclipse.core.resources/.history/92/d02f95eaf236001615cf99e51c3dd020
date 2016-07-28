@@ -1,9 +1,0 @@
-
-public class Boat extends VehicleApp {
-
-	public static void main(String[] args) {
-		System.out.println(" Row the boat");
-
-	}
-
-}

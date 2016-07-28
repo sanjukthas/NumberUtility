@@ -1,0 +1,63 @@
+package controllers;
+
+
+import java.io.IOException;
+
+import javax.persistence.NoResultException;
+import javax.persistence.NonUniqueResultException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import model.DBPerson;
+import model.Grade;
+
+/**
+ * Servlet implementation class Register
+ */
+@WebServlet("/Register")
+public class Register extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Register() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		try{
+       	 
+       	 Grade grade= new Grade();
+       	 grade.setStudent(DBPerson.getStudent(request.getParameter("student")));
+       	 grade.setCournumber(request.getParameter("cournumber"));
+        DBPerson.insert(grade);
+        String nextURL = "Enroll.jsp";
+        request.getRequestDispatcher(nextURL).forward(request,response);
+		
+	} catch (NoResultException e){
+		e.printStackTrace();
+	} catch (NonUniqueResultException e){
+		e.printStackTrace();
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+        
+		
+	}
+
+}

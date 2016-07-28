@@ -1,0 +1,106 @@
+package model;
+
+import java.io.Serializable;
+import javax.persistence.*;
+
+
+/**
+ * The persistent class for the PERSON database table.
+ * 
+ */
+@Entity
+@NamedQuery(name="Person.findAll", query="SELECT p FROM Person p")
+public class Person implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@SequenceGenerator(name="PERSON_PERSONID_GENERATOR", sequenceName="PERSON_ID_SEQ",allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="PERSON_PERSONID_GENERATOR")
+	private long personid;
+
+	private String email;
+
+	private String firstname;
+
+	private String lastname;
+
+	private String pwd;
+
+	private String username;
+
+	//bi-directional one-to-one association to Instructor
+	@OneToOne(mappedBy="person")
+	private Instructor instructor;
+
+	//bi-directional one-to-one association to Student
+	@OneToOne(mappedBy="person")
+	private Student student;
+
+	public Person() {
+	}
+
+	public long getPersonid() {
+		return this.personid;
+	}
+
+	public void setPersonid(long personid) {
+		this.personid = personid;
+	}
+
+	public String getEmail() {
+		return this.email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getFirstname() {
+		return this.firstname;
+	}
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+
+	public String getLastname() {
+		return this.lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public String getPwd() {
+		return this.pwd;
+	}
+
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+
+	public String getUsername() {
+		return this.username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public Instructor getInstructor() {
+		return this.instructor;
+	}
+
+	public void setInstructor(Instructor instructor) {
+		this.instructor = instructor;
+	}
+
+	public Student getStudent() {
+		return this.student;
+	}
+
+	public void setStudent(Student student) {
+		this.student = student;
+	}
+
+}

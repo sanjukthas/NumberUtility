@@ -1,0 +1,14 @@
+0:0:0:0:0:0:0:1 - - [20/Jul/2016:09:54:43 -0400] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [20/Jul/2016:09:56:04 -0400] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [20/Jul/2016:09:59:34 -0400] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [20/Jul/2016:10:00:21 -0400] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [20/Jul/2016:10:00:25 -0400] "GET /MinionMart/ HTTP/1.1" 200 1587
+0:0:0:0:0:0:0:1 - - [20/Jul/2016:10:00:25 -0400] "GET /MinionMart/css/mycss.css HTTP/1.1" 200 7757
+0:0:0:0:0:0:0:1 - - [20/Jul/2016:10:00:26 -0400] "GET /MinionMart/styles/darkly.bootstrap.min.css HTTP/1.1" 404 2491
+0:0:0:0:0:0:0:1 - - [20/Jul/2016:10:00:26 -0400] "GET /favicon.ico HTTP/1.1" 404 973
+0:0:0:0:0:0:0:1 - - [20/Jul/2016:10:00:41 -0400] "POST /MinionMart/loginServlet HTTP/1.1" 200 1608
+0:0:0:0:0:0:0:1 - - [20/Jul/2016:10:00:41 -0400] "GET /MinionMart/styles/darkly.bootstrap.min.css HTTP/1.1" 404 2491
+0:0:0:0:0:0:0:1 - - [20/Jul/2016:10:00:41 -0400] "GET /MinionMart/css/mycss.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [20/Jul/2016:10:01:01 -0400] "POST /MinionMart/loginServlet HTTP/1.1" 200 7242
+0:0:0:0:0:0:0:1 - - [20/Jul/2016:10:01:01 -0400] "GET /MinionMart/css/style.css HTTP/1.1" 404 2788
+0:0:0:0:0:0:0:1 - - [20/Jul/2016:10:01:01 -0400] "GET /MinionMart/css/mycss.css HTTP/1.1" 304 -

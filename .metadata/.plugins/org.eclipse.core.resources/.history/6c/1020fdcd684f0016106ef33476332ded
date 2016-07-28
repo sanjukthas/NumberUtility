@@ -1,0 +1,89 @@
+package model;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
+
+public class DBPerson {
+
+    public static void insert(Person person) {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        EntityTransaction trans = em.getTransaction();
+        try {
+            trans.begin();
+            em.persist(person);
+            trans.commit();
+        } catch (Exception e) {
+            trans.rollback();
+        } finally {
+            em.close();
+        }
+    }
+    public static void update(Person person) {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        EntityTransaction trans = em.getTransaction();
+        try {
+            trans.begin();
+            em.merge(person);
+            trans.commit();
+        } catch (Exception e) {
+            trans.rollback();
+        } finally {
+            em.close();
+        }
+    }
+
+    public static void delete(Person person) {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        EntityTransaction trans = em.getTransaction();
+        try {
+            trans.begin();
+            em.remove(em.merge(person));
+            trans.commit();
+        } catch (Exception e) {
+            System.out.println(e);
+            trans.rollback();
+        } finally {
+            em.close();
+        }
+    }
+
+    public static List<Person> getAllPost(){
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        String qString = "select b from Person b";
+        
+        List<Person> posts = null;
+        try{
+            TypedQuery<Person> query = em.createQuery(qString,Person.class);
+            posts = query.getResultList();
+         
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        finally{
+                em.close();
+            }
+        return posts;
+    }
+    
+    public static List<Person> personid(long personid)
+    {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        List<Person> userposts = null;
+        String qString = "select b from Person where b.Person.personid = :personid";
+        
+        try{
+            TypedQuery<Person> query = em.createQuery(qString,Person.class);
+            query.setParameter("personid", personid);
+            userposts = query.getResultList();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        finally{
+                em.close();
+            }
+        return userposts;    
+    }
+
+}	

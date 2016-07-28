@@ -6,10 +6,6 @@ import java.util.Date;
 import java.util.List;
 
 
-/**
- * The persistent class for the BHUSER database table.
- * 
- */
 @Entity
 @Table (name="Bhuser", schema="ORA1")
 @NamedQuery(name="Bhuser.findAll", query="SELECT b FROM Bhuser b")

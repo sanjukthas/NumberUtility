@@ -1,0 +1,73 @@
+package model;
+
+import java.io.Serializable;
+import javax.persistence.*;
+
+
+/**
+ * The persistent class for the COURSES database table.
+ * 
+ */
+@Entity
+@Table(name="COURSES")
+@NamedQuery(name="Cours.findAll", query="SELECT c FROM Cours c")
+public class Cours implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@SequenceGenerator(name="COURSES_COURID_GENERATOR", sequenceName="COURSES_ID_SEQ",allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="COURSES_COURID_GENERATOR")
+	private long courid;
+
+	private String courdesc;
+
+	private String cournumber;
+
+	private String credits;
+
+	private String subjectcode;
+
+	public Cours() {
+	}
+
+	public long getCourid() {
+		return this.courid;
+	}
+
+	public void setCourid(long courid) {
+		this.courid = courid;
+	}
+
+	public String getCourdesc() {
+		return this.courdesc;
+	}
+
+	public void setCourdesc(String courdesc) {
+		this.courdesc = courdesc;
+	}
+
+	public String getCournumber() {
+		return this.cournumber;
+	}
+
+	public void setCournumber(String cournumber) {
+		this.cournumber = cournumber;
+	}
+
+	public String getCredits() {
+		return this.credits;
+	}
+
+	public void setCredits(String credits) {
+		this.credits = credits;
+	}
+
+	public String getSubjectcode() {
+		return this.subjectcode;
+	}
+
+	public void setSubjectcode(String subjectcode) {
+		this.subjectcode = subjectcode;
+	}
+
+}

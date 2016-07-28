@@ -1,0 +1,162 @@
+package model;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
+
+public class DBPerson {
+
+    public static void insert(Person person) {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        EntityTransaction trans = em.getTransaction();
+        try {
+            trans.begin();
+            em.persist(person);
+            trans.commit();
+        } catch (Exception e) {
+            trans.rollback();
+        } finally {
+            em.close();
+        }
+    }
+    public static void insert(Grade grade) {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        EntityTransaction trans = em.getTransaction();
+        try {
+            trans.begin();
+            em.persist(grade);
+            trans.commit();
+        } catch (Exception e) {
+            trans.rollback();
+        } finally {
+            em.close();
+        }
+    }
+    public static void update(Person person) {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        EntityTransaction trans = em.getTransaction();
+        try {
+            trans.begin();
+            em.merge(person);
+            trans.commit();
+        } catch (Exception e) {
+            trans.rollback();
+        } finally {
+            em.close();
+        }
+    }
+
+    public static void delete(Person person) {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        EntityTransaction trans = em.getTransaction();
+        try {
+            trans.begin();
+            em.remove(em.merge(person));
+            trans.commit();
+        } catch (Exception e) {
+            System.out.println(e);
+            trans.rollback();
+        } finally {
+            em.close();
+        }
+    }
+
+    public static List<Person> getAllPost(String email){
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        String qString = "select b from Person b";
+        
+        List<Person> posts = null;
+        try{
+            TypedQuery<Person> query = em.createQuery(qString,Person.class);
+            posts = query.getResultList();
+         
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        finally{
+                em.close();
+            }
+        return posts;
+    }
+    
+        public static List<Student> student()
+    {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        List<Student> student = null;
+        String qString = "select b from Student b";
+        
+        try{
+            TypedQuery<Student> query = em.createQuery(qString,Student.class);
+            student = query.getResultList();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        finally{
+                em.close();
+            }
+        return student;    
+    }
+        public static List<Instructor> instructor()
+        {
+            EntityManager em = DBUtil.getEmFactory().createEntityManager();
+            List<Instructor> instructor = null;
+            String qString = "select b from Instructor b";
+            
+            try{
+                TypedQuery<Instructor> query = em.createQuery(qString,Instructor.class);
+                instructor = query.getResultList();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            finally{
+                    em.close();
+                }
+            return instructor;    
+        }
+        
+        public static List<Cours> cours()
+        {
+            EntityManager em = DBUtil.getEmFactory().createEntityManager();
+            List<Cours> cours = null;
+            String qString = "select b from Cours b";
+            
+            try{
+                TypedQuery<Cours> query = em.createQuery(qString,Cours.class);
+                cours = query.getResultList();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            finally{
+                    em.close();
+                }
+            return cours;    
+        }
+        
+//        public static boolean checkcourse(Person user, String checks[])
+//    	{
+//    		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+//    		String qString = "Select student from student b "
+//    			+ "where b.student.studentid = :person";
+//    		boolean result = false;
+//    		try{
+//    		TypedQuery<Long> q = em.createQuery(qString,Long.class);
+//    		
+//    		
+//    		
+//    		
+//    		String qString1 = "Select b from Cours b "
+//        			+ "where b.cournumber = :cournumber";
+//    		q.setParameter("cournumber",);
+//    		Grade grade=new Grade();
+//    		
+//    		}catch (Exception e){
+//                e.printStackTrace();
+//            }
+//            finally{
+//                    em.close();
+//                }
+//            return result;    
+//        }
+
+}	

@@ -1,0 +1,74 @@
+package DBUtil;
+
+import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.NoResultException;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+
+import DBUtil.DBUtil;
+import model.Person;
+i
+
+public class UserHelp {
+
+	public static Person getUserByEmail(String email) {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String qString = "Select u from Minionuser u " + "where u.useremail=:useremail";
+		TypedQuery<Person> q = em.createQuery(qString, Person.class);
+		q.setParameter("useremail", email);
+		Person user = null;
+		try {
+			user = q.getSingleResult();
+		} catch (NoResultException e) {
+			System.out.println(e);
+		} finally {
+			em.close();
+		}
+		return user;
+	}
+	
+	public static Person getUserByName(String name) {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String qString = "Select u from Minionuser u where u.username = :name";
+		TypedQuery<Person> q = em.createQuery(qString, Person.class);
+		q.setParameter("name", name);
+		Person user = null;
+		try {
+			user = q.getSingleResult();
+		} catch (NoResultException e) {
+			System.out.println(e);
+		} finally {
+			em.close();
+		}
+		return user;
+	}
+
+	public static boolean isValidUser(String name, String pass) throws NoSuchAlgorithmException {
+		boolean result = false;
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String qString = "Select b from Minionuser b where b.username = :name";
+		try {
+			TypedQuery<Person> q = em.createQuery(qString, Person.class);
+
+			q.setParameter("name", name);
+			Person user = q.getSingleResult();
+			String hashCode = PasswordUtil.hashPasswordPlusSalt(pass, user.getPwdsecure());
+		
+			if (user.getPwd().equals(hashCode)) {
+				result = true;
+			}
+		} catch (Exception e) {
+			result = false;
+		} finally {
+			em.close();
+		}
+		return result;
+	}
+}

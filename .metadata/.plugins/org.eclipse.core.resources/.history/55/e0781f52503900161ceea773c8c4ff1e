@@ -1,8 +1,0 @@
-import java.util.Set;
-
-public class list {
-
-	Set.add(new list ("Please tell me more"));
-	Set.add(new list("Many of my patients tell me the same thing"));
-	Set.add(new list("It is getting late, maybe we had better quit"));
-}

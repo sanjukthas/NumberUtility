@@ -1,9 +1,0 @@
-
-public class Plane extends VehicleAPP{
-
-	public static void main(String[] args) {
-		System.out.println(" Drive a plane");
-
-	}
-
-}

@@ -1,9 +1,0 @@
-package model;
-
-public class UserByEmail {
-
-	public static Bhuser getUserEmail(String[] args) {
-		
-	}
-
-}

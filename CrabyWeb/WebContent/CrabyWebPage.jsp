@@ -4,9 +4,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<script language="JavaScript">
+
+function listTags()
+{
+ var tag, tags;
+ // or you can use var allElem=document.all; and loop on it
+ tags = "The tags in the page are:"
+ for(i = 0; i < document.all.length; i++)
+ {
+   tag = document.all(i).tagName;
+   tags = tags + "<br/>" + tag;
+ }
+ document.write(tags);
+}
+</script>
 </head>
 <body>
+<button onclick="listTags()">List my Tags</button>
 <h1>Crabcake Recipe </h1>
 <h2>Ingredients: </h2>
 <ul>
